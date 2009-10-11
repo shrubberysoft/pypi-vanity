@@ -28,8 +28,10 @@ def build_summary_chart(packages):
         return chart
     return ''
 
+
 def build_package_chart(package):
-    releases = package.releases.all()
+    releases = list(package.releases.order_by('-total_downloads')[:5])
+    releases.sort(key=lambda r: r.version)
     downloads = [release.total_downloads for release in releases]
     if downloads:
         # Well, it seems that Google Charts cannot display value labels
