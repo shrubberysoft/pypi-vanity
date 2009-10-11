@@ -28,6 +28,7 @@ setup(
     author='Shrubbery Software',
     author_email='team@shrubberysoft.com',
     url='http://github.com/shrubberysoft/pypi-vanity',
+    install_requires=['GChartWrapper'],
     packages=['pypi_vanity'],
     package_data={'pypi_vanity': ['templates/*.html']},
     zip_safe=False,

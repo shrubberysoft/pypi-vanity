@@ -1,6 +1,7 @@
-{% for package in packages %}
-    <h2>{{ package.name }}</h2>
-    <p>
-        Total downloads: {{ package.total_downloads }}
-    </p>
-{% endfor %}
+<p>
+    {% for package, chart in packages %}
+        {% if chart %}
+        <img src="{{ chart|safe }}" alt="{{ package.name }} ({{ package.total_downloads }})">
+        {% endif %}
+    {% endfor %}
+</p>

@@ -15,9 +15,21 @@ class Package(models.Model):
     def __unicode__(self):
         return self.name
 
+    @classmethod
+    def with_statistics(cls):
+        """Return all packages annotated with statistics.  To examine
+        the numbers, call the ``total_downloads`` method as usual."""
+        return cls.objects.annotate(models.Sum('releases__total_downloads'))
+
+    @property
     def total_downloads(self):
-        total = self.releases.all().aggregate(models.Sum('total_downloads'))
-        return total['total_downloads__sum'] or 0
+        # Nice: works both with annotate and directly
+        sum_attr = 'releases__total_downloads__sum'
+        if not hasattr(self, sum_attr):
+            releases = self.releases.all()
+            aggregate = releases.aggregate(models.Sum('total_downloads'))
+            setattr(self, sum_attr, aggregate['total_downloads__sum'])
+        return getattr(self, sum_attr) or 0
 
 
 class Release(models.Model):

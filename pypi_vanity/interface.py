@@ -8,6 +8,7 @@ from pypi_vanity.models import Package, Release, DownloadHistory
 logger = logging.getLogger(__name__)
 PYPI_URL = 'http://python.org/pypi'
 
+## XXX: this definitely needs error handling
 
 class Updater(object):
     """Statistics updater."""
