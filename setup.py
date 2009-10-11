@@ -23,7 +23,7 @@ from setuptools import setup, find_packages
 setup(
     name='pypi-vanity',
     version='0.1',
-    description='PyPI package download statistics',
+    description='Track PyPI package download statistics',
     long_description=open('README').read(),
     author='Shrubbery Software',
     author_email='team@shrubberysoft.com',
