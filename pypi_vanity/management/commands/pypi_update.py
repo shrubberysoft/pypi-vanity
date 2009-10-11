@@ -10,7 +10,12 @@ from pypi_vanity.models import Package
 class Command(BaseCommand):
     help = 'Updates package statistics from PyPI'
 
-    def handle(self, **options):
+    def handle(self, *args, **options):
         logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
         updater = Updater()
-        updater.update_all()
+        if len(args):
+            for name in args:
+                package = Package.objects.get(name=name)
+                updater.update_package(package)
+        else:
+            updater.update_all()
