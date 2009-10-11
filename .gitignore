@@ -1,0 +1,10 @@
+bin
+/eggs
+/develop-eggs
+/build
+/parts
+/.installed.cfg
+/*.egg-info
+*.pyc
+*.pyo
+vanity.db
