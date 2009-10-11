@@ -1,0 +1,6 @@
+{% for package in packages %}
+    <h2>{{ package.name }}</h2>
+    <p>
+        Total downloads: {{ package.total_downloads }}
+    </p>
+{% endfor %}
