@@ -1,4 +1,4 @@
-This package uses XML-RPC interface [1] to PyPI to retrieve and accumulate
-release download statistics over time.
+This package uses the XML-RPC interface [1] of the Python Package Index (PyPI)
+to retrieve and accumulate release download statistics over time.
 
 [1] http://wiki.python.org/moin/PyPiXmlRpc
